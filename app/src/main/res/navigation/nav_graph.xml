@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graphj"
+    app:startDestination="@id/noteFragment">
+
+    <fragment
+        android:id="@+id/noteFragment"
+        android:name="com.ezafebrian.firebasemvvmstateflow.ui.note.NoteFragment"
+        android:label="Firebase Note"
+        tools:layout="@layout/note_fragment" >
+        <action
+            android:id="@+id/action_noteFragment_to_saveFragment"
+            app:destination="@id/saveFragment" />
+        <action
+            android:id="@+id/action_noteFragment_to_deleteFragment"
+            app:destination="@id/deleteFragment" />
+        <action
+            android:id="@+id/action_noteFragment_to_editFragment"
+            app:destination="@id/editFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/editFragment"
+        android:name="com.ezafebrian.firebasemvvmstateflow.ui.edit.EditFragment"
+        android:label="Edit"
+        tools:layout="@layout/edit_fragment" >
+        <argument
+            android:name="note"
+            app:argType="com.ezafebrian.firebasemvvmstateflow.data.model.Note" />
+    </dialog>
+    <dialog
+        android:id="@+id/saveFragment"
+        android:name="com.ezafebrian.firebasemvvmstateflow.ui.save.SaveFragment"
+        android:label="Save"
+        tools:layout="@layout/save_fragment" />
+    <dialog
+        android:id="@+id/deleteFragment"
+        android:name="com.ezafebrian.firebasemvvmstateflow.ui.delete.DeleteFragment"
+        android:label="delete_fragment"
+        tools:layout="@layout/delete_fragment" >
+        <argument
+            android:name="noteId"
+            app:argType="string" />
+    </dialog>
+</navigation>
